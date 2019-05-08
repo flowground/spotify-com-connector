@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 20
+        },
+        "offset": {
+            "required": false,
+            "type": "integer",
+            "default": 0
+        },
+        "album_type": {
+            "required": false,
+            "type": "string"
+        },
+        "market": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

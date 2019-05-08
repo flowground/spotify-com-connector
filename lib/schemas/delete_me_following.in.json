@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "artist",
+                "user"
+            ]
+        },
+        "ids": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

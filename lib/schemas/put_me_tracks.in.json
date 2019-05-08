@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "ids": {
+            "required": true,
+            "type": "string"
+        },
+        "Accept": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "playlist_id": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "market": {
+            "required": false,
+            "type": "string"
+        },
+        "Accept": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "playlist_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "public": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

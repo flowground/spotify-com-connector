@@ -1,0 +1,682 @@
+{
+    "title": "Spotify",
+    "docsUrl": "https://developer.spotify.com/",
+    "url": "https://api.apis.guru/v2/specs/spotify.com/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.spotify.com/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "oauth_2_0_accessCode": {
+                "label": "Spotify supports OAuth 2.0 for authenticating all API requests.\n",
+                "viewClass": "OAuthFieldView"
+            },
+            "oauth_2_0_implicit": {
+                "label": "Spotify supports OAuth 2.0 for authenticating all API requests.\n",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.spotify.com/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_albums": {
+            "main": "./lib/actions/get_albums.js",
+            "title": "[Get Several Albums](https://developer.spotify.com/web-api/get-several-albums/)\n",
+            "description": "[Get Several Albums](https://developer.spotify.com/web-api/get-several-albums/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_albums.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_albums__id_": {
+            "main": "./lib/actions/get_albums__id_.js",
+            "title": "[Get an Album](https://developer.spotify.com/web-api/get-album/)\n",
+            "description": "[Get an Album](https://developer.spotify.com/web-api/get-album/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_albums__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_albums__id__tracks": {
+            "main": "./lib/actions/get_albums__id__tracks.js",
+            "title": "[Get an Album's Tracks](https://developer.spotify.com/web-api/get-albums-tracks/)\n",
+            "description": "[Get an Album's Tracks](https://developer.spotify.com/web-api/get-albums-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_albums__id__tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_artists": {
+            "main": "./lib/actions/get_artists.js",
+            "title": "[Get Several Artists](https://developer.spotify.com/web-api/get-several-artists/)\n",
+            "description": "[Get Several Artists](https://developer.spotify.com/web-api/get-several-artists/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_artists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_artists__id_": {
+            "main": "./lib/actions/get_artists__id_.js",
+            "title": "[Get an Artist](https://developer.spotify.com/web-api/get-artist/)\n",
+            "description": "[Get an Artist](https://developer.spotify.com/web-api/get-artist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_artists__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_artists__id__albums": {
+            "main": "./lib/actions/get_artists__id__albums.js",
+            "title": "[Get an Artist's Albums](https://developer.spotify.com/web-api/get-artists-albums/)\n",
+            "description": "[Get an Artist's Albums](https://developer.spotify.com/web-api/get-artists-albums/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_artists__id__albums.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_artists__id__related_artists": {
+            "main": "./lib/actions/get_artists__id__related_artists.js",
+            "title": "[Get an Artist's Related Artists](https://developer.spotify.com/web-api/get-related-artists/)\n",
+            "description": "[Get an Artist's Related Artists](https://developer.spotify.com/web-api/get-related-artists/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_artists__id__related_artists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_artists__id__top_tracks": {
+            "main": "./lib/actions/get_artists__id__top_tracks.js",
+            "title": "[Get an Artist's Top Tracks](https://developer.spotify.com/web-api/get-artists-top-tracks/)\n",
+            "description": "[Get an Artist's Top Tracks](https://developer.spotify.com/web-api/get-artists-top-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_artists__id__top_tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_browse_categories": {
+            "main": "./lib/actions/get_browse_categories.js",
+            "title": "[Get a List of Browse Categories](https://developer.spotify.com/web-api/get-list-categories/)\n",
+            "description": "[Get a List of Browse Categories](https://developer.spotify.com/web-api/get-list-categories/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_browse_categories.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_browse_categories__category_id_": {
+            "main": "./lib/actions/get_browse_categories__category_id_.js",
+            "title": "[Get a Single Browse Category](https://developer.spotify.com/web-api/get-category/)\n",
+            "description": "[Get a Single Browse Category](https://developer.spotify.com/web-api/get-category/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_browse_categories__category_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_browse_categories__category_id__playlists": {
+            "main": "./lib/actions/get_browse_categories__category_id__playlists.js",
+            "title": "[Get a Category's playlists](https://developer.spotify.com/web-api/get-categorys-playlists/)\n",
+            "description": "[Get a Category's playlists](https://developer.spotify.com/web-api/get-categorys-playlists/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_browse_categories__category_id__playlists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_browse_featured_playlists": {
+            "main": "./lib/actions/get_browse_featured_playlists.js",
+            "title": "[Get a List of Featured Playlists](https://developer.spotify.com/web-api/get-list-featured-playlists/)\n",
+            "description": "[Get a List of Featured Playlists](https://developer.spotify.com/web-api/get-list-featured-playlists/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_browse_featured_playlists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_browse_new_releases": {
+            "main": "./lib/actions/get_browse_new_releases.js",
+            "title": "[Get a List of New Releases](https://developer.spotify.com/web-api/get-list-new-releases/)\n",
+            "description": "[Get a List of New Releases](https://developer.spotify.com/web-api/get-list-new-releases/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_browse_new_releases.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_me": {
+            "main": "./lib/actions/get_me.js",
+            "title": "[Get Current User's Profile](https://developer.spotify.com/web-api/get-current-users-profile/)\n",
+            "description": "[Get Current User's Profile](https://developer.spotify.com/web-api/get-current-users-profile/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_me.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_me_following": {
+            "main": "./lib/actions/delete_me_following.js",
+            "title": "[Unfollow Artists or Users](https://developer.spotify.com/web-api/unfollow-artists-users/)\n",
+            "description": "[Unfollow Artists or Users](https://developer.spotify.com/web-api/unfollow-artists-users/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_me_following.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_me_following": {
+            "main": "./lib/actions/get_me_following.js",
+            "title": "[Get User's Followed Artists](https://developer.spotify.com/web-api/get-followed-artists/)\n",
+            "description": "[Get User's Followed Artists](https://developer.spotify.com/web-api/get-followed-artists/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_me_following.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_me_following": {
+            "main": "./lib/actions/put_me_following.js",
+            "title": "[Follow Artists or Users](https://developer.spotify.com/web-api/follow-artists-users/)\n",
+            "description": "[Follow Artists or Users](https://developer.spotify.com/web-api/follow-artists-users/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_me_following.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_me_following_contains": {
+            "main": "./lib/actions/get_me_following_contains.js",
+            "title": "[Check if Current User Follows Artists or Users](https://developer.spotify.com/web-api/check-current-user-follows/)\n",
+            "description": "[Check if Current User Follows Artists or Users](https://developer.spotify.com/web-api/check-current-user-follows/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_me_following_contains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_me_tracks": {
+            "main": "./lib/actions/delete_me_tracks.js",
+            "title": "[Remove Tracks for Current User](https://developer.spotify.com/web-api/remove-tracks-user/)\n",
+            "description": "[Remove Tracks for Current User](https://developer.spotify.com/web-api/remove-tracks-user/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_me_tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_me_tracks": {
+            "main": "./lib/actions/get_me_tracks.js",
+            "title": "[Get Current User's Saved Tracks](https://developer.spotify.com/web-api/get-users-saved-tracks/)\n",
+            "description": "[Get Current User's Saved Tracks](https://developer.spotify.com/web-api/get-users-saved-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_me_tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_me_tracks": {
+            "main": "./lib/actions/put_me_tracks.js",
+            "title": "[Save Tracks for Current User](https://developer.spotify.com/web-api/save-tracks-user/)\n",
+            "description": "[Save Tracks for Current User](https://developer.spotify.com/web-api/save-tracks-user/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_me_tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_me_tracks_contains": {
+            "main": "./lib/actions/get_me_tracks_contains.js",
+            "title": "[Check Current User's Saved Tracks](https://developer.spotify.com/web-api/check-users-saved-tracks/)\n",
+            "description": "[Check Current User's Saved Tracks](https://developer.spotify.com/web-api/check-users-saved-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_me_tracks_contains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_search": {
+            "main": "./lib/actions/get_search.js",
+            "title": "[Search for an Item](https://developer.spotify.com/web-api/search-item/)\n",
+            "description": "[Search for an Item](https://developer.spotify.com/web-api/search-item/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_tracks": {
+            "main": "./lib/actions/get_tracks.js",
+            "title": "[Get Several Tracks](https://developer.spotify.com/web-api/get-several-tracks/)\n",
+            "description": "[Get Several Tracks](https://developer.spotify.com/web-api/get-several-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_tracks__id_": {
+            "main": "./lib/actions/get_tracks__id_.js",
+            "title": "[Get a Track](https://developer.spotify.com/web-api/get-track/)\n",
+            "description": "[Get a Track](https://developer.spotify.com/web-api/get-track/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_tracks__id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_users__user_id_": {
+            "main": "./lib/actions/get_users__user_id_.js",
+            "title": "[Get a User's Profile](https://developer.spotify.com/web-api/get-users-profile/)\n",
+            "description": "[Get a User's Profile](https://developer.spotify.com/web-api/get-users-profile/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users__user_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_users__user_id__playlists": {
+            "main": "./lib/actions/get_users__user_id__playlists.js",
+            "title": "[Get a List of a User's Playlists](https://developer.spotify.com/web-api/get-list-users-playlists/)\n",
+            "description": "[Get a List of a User's Playlists](https://developer.spotify.com/web-api/get-list-users-playlists/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users__user_id__playlists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_users__user_id__playlists": {
+            "main": "./lib/actions/post_users__user_id__playlists.js",
+            "title": "[Create a Playlist](https://developer.spotify.com/web-api/create-playlist/)\n",
+            "description": "[Create a Playlist](https://developer.spotify.com/web-api/create-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_users__user_id__playlists.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_users__user_id__playlists__playlist_id_": {
+            "main": "./lib/actions/get_users__user_id__playlists__playlist_id_.js",
+            "title": "[Get a Playlist](https://developer.spotify.com/web-api/get-playlist/)\n",
+            "description": "[Get a Playlist](https://developer.spotify.com/web-api/get-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users__user_id__playlists__playlist_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_users__user_id__playlists__playlist_id_": {
+            "main": "./lib/actions/put_users__user_id__playlists__playlist_id_.js",
+            "title": "[Change a Playlist's Details](https://developer.spotify.com/web-api/change-playlist-details/)\n",
+            "description": "[Change a Playlist's Details](https://developer.spotify.com/web-api/change-playlist-details/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_users__user_id__playlists__playlist_id_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_users__user_id__playlists__playlist_id__followers": {
+            "main": "./lib/actions/delete_users__user_id__playlists__playlist_id__followers.js",
+            "title": "[Unfollow a Playlist](https://developer.spotify.com/web-api/unfollow-playlist/)\n",
+            "description": "[Unfollow a Playlist](https://developer.spotify.com/web-api/unfollow-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_users__user_id__playlists__playlist_id__followers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_users__user_id__playlists__playlist_id__followers": {
+            "main": "./lib/actions/put_users__user_id__playlists__playlist_id__followers.js",
+            "title": "[Follow a Playlist](https://developer.spotify.com/web-api/follow-playlist/)\n",
+            "description": "[Follow a Playlist](https://developer.spotify.com/web-api/follow-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_users__user_id__playlists__playlist_id__followers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_users__user_id__playlists__playlist_id__followers_contains": {
+            "main": "./lib/actions/get_users__user_id__playlists__playlist_id__followers_contains.js",
+            "title": "[Check if Users Follow a Playlist](https://developer.spotify.com/web-api/check-user-following-playlist/)\n",
+            "description": "[Check if Users Follow a Playlist](https://developer.spotify.com/web-api/check-user-following-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users__user_id__playlists__playlist_id__followers_contains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_users__user_id__playlists__playlist_id__tracks": {
+            "main": "./lib/actions/delete_users__user_id__playlists__playlist_id__tracks.js",
+            "title": "[Remove Tracks from a Playlist](https://developer.spotify.com/web-api/remove-tracks-playlist/)\n",
+            "description": "[Remove Tracks from a Playlist](https://developer.spotify.com/web-api/remove-tracks-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_users__user_id__playlists__playlist_id__tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_users__user_id__playlists__playlist_id__tracks": {
+            "main": "./lib/actions/get_users__user_id__playlists__playlist_id__tracks.js",
+            "title": "[Get a Playlist's Tracks](https://developer.spotify.com/web-api/get-playlists-tracks/)\n",
+            "description": "[Get a Playlist's Tracks](https://developer.spotify.com/web-api/get-playlists-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_users__user_id__playlists__playlist_id__tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_users__user_id__playlists__playlist_id__tracks": {
+            "main": "./lib/actions/post_users__user_id__playlists__playlist_id__tracks.js",
+            "title": "[Add Tracks to a Playlist](https://developer.spotify.com/web-api/add-tracks-to-playlist/)\n",
+            "description": "[Add Tracks to a Playlist](https://developer.spotify.com/web-api/add-tracks-to-playlist/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_users__user_id__playlists__playlist_id__tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_users__user_id__playlists__playlist_id__tracks": {
+            "main": "./lib/actions/put_users__user_id__playlists__playlist_id__tracks.js",
+            "title": "[Reorder or replace a Playlist's Tracks](https://developer.spotify.com/web-api/reorder-playlists-tracks/)\n",
+            "description": "[Reorder or replace a Playlist's Tracks](https://developer.spotify.com/web-api/reorder-playlists-tracks/)\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_users__user_id__playlists__playlist_id__tracks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

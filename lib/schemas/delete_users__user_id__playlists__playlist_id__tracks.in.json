@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "required": true,
+            "type": "string"
+        },
+        "playlist_id": {
+            "required": true,
+            "type": "string"
+        },
+        "Accept": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "tracks": {
+                    "items": {},
+                    "type": "array"
+                }
+            },
+            "required": [
+                "tracks"
+            ],
+            "type": "object"
+        }
+    }
+}
